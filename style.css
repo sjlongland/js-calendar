@@ -1,0 +1,35 @@
+.calendar_event {
+	display: block;
+	border: 1px solid black;
+	padding: 1em;
+	margin: 0.5em;
+	background: #fff;
+	color: #000;
+	text-decoration: none;
+}
+
+.calendar_event:hover {
+	border: 1px solid blue;
+	background: #cef;
+	color: #006;
+}
+
+.calendar_event.calendar_event_in_progress {
+	border: 1px solid red;
+	background: #fec;
+}
+
+.calendar_event_in_progress:hover {
+	background: #fc9;
+	color: #600;
+}
+
+.calendar_event_summary {
+	font-weight: bold;
+	font-size: large;
+}
+
+.calendar_event_location {
+	font-size: small;
+	font-style: italic;
+}
