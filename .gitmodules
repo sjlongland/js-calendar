@@ -1,6 +1,3 @@
 [submodule "third-party/ical.js"]
 	path = third-party/ical.js
 	url = https://github.com/mozilla-comm/ical.js.git
-[submodule "third-party/bluebird"]
-	path = third-party/bluebird
-	url = https://github.com/petkaantonov/bluebird.git
