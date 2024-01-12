@@ -100,8 +100,10 @@ var CalendarViewer = function (icsurl, start, end) {
 };
 
 CalendarViewer.nextNDays = function(icsurl, days) {
-	/* Current start time */
+	/* Current start time, midnight today */
 	var start = ICAL.Time.now();
+	start.adjust(0, -start.hour, -start.minute, -start.second);
+
 	/* Current end time; 60 days from now */
 	var end = start.clone();
 	end.addDuration(new ICAL.Duration({days: days}));
