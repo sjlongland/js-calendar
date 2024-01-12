@@ -45,12 +45,10 @@ var fetch = function (url, options) {
 };
 
 
-var CalendarViewer = function (icsurl) {
-	/* Current start time */
-	this.start = ICAL.Time.now();
-	/* Current end time; 60 days from now */
-	this.end = this.start.clone();
-	this.end.addDuration(new ICAL.Duration({days: 60}));
+var CalendarViewer = function (icsurl, start, end) {
+	/* Current start and end time */
+	this.start = start;
+	this.end = end;
 
 	/* Cache of icalendar data */
 	var icsdata = null;
@@ -99,6 +97,16 @@ var CalendarViewer = function (icsurl) {
 			return icsevents;
 		});
 	};
+};
+
+CalendarViewer.nextNDays = function(icsurl, days) {
+	/* Current start time */
+	var start = ICAL.Time.now();
+	/* Current end time; 60 days from now */
+	var end = start.clone();
+	end.addDuration(new ICAL.Duration({days: days}));
+
+	return new CalendarViewer(icsurl, start, end);
 };
 
 CalendarViewer.prototype.getEvents = function () {

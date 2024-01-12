@@ -3,7 +3,7 @@ var viewer;
 
 var main = function() {
 	body = document.getElementsByTagName('body')[0];
-	viewer = new CalendarViewer('../ics/wicen.ics');
+	viewer = CalendarViewer.nextNDays('../ics/wicen.ics', 60);
 	viewer.getEvents().then(function (events) {
 		var now = ICAL.Time.now();
 		var calendarDiv = document.createElement('div');
