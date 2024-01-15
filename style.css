@@ -1,3 +1,8 @@
+body {
+	margin: 0px;
+	overflow-x: hidden;
+}
+
 .calendar_event {
 	display: block;
 	border: 1px solid black;
@@ -46,7 +51,7 @@
 	margin-left: auto;
 	margin-right: auto;
 	border: 1px solid black;
-	padding: 1em;
+	padding: 0.2em;
 	background: #fff;
 	color: #000;
 	text-decoration: none;
@@ -60,11 +65,12 @@
 
 .calendar_table > thead > tr > th {
 	width: 14%;
+	font-size: small;
 }
 
 .calendar_table > tbody > tr > td > button {
 	width: 100%;
-	padding: 1em;
+	padding: 0.2em;
 }
 
 .calendar_date {
