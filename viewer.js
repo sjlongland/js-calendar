@@ -144,6 +144,7 @@ CalendarViewer.prototype.getEvents = function () {
 				start: start,
 				end: end,
 				evt: evt,
+				pastEvent: (now.compare(end) >= 0),
 				inProgress: (now.compare(start) >= 0) && (now.compare(end) <= 0)
 			});
 		};
