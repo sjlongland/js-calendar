@@ -104,11 +104,30 @@ CalendarViewer.nextNDays = function(icsurl, days) {
 	var start = ICAL.Time.now();
 	start.adjust(0, -start.hour, -start.minute, -start.second);
 
-	/* Current end time; 60 days from now */
+	/* Current end time; N days from now */
 	var end = start.clone();
-	end.addDuration(new ICAL.Duration({days: days}));
+	end.adjust(days, 0, 0, 0);
 
 	return new CalendarViewer(icsurl, start, end);
+};
+
+CalendarViewer.prototype.seekDays = function(n) {
+	this.start.adjust(n, 0, 0, 0);
+	this.end.adjust(n, 0, 0, 0);
+};
+
+CalendarViewer.prototype.prevMonth = function() {
+	var oldStart = this.start;
+	this.end = oldStart.clone();
+	this.end.adjust(-1);
+	this.start = this.end.clone().startOfMonth();
+};
+
+CalendarViewer.prototype.nextMonth = function() {
+	var oldEnd = this.end;
+	this.start = oldEnd.clone();
+	this.start.adjust(1);
+	this.end = this.start.clone().endOfMonth();
 };
 
 CalendarViewer.prototype.getEvents = function () {
