@@ -232,9 +232,9 @@ function TableMaker(headings) {
 	});
 	Object.defineProperty(this, "headings", {
 		value: headings.map(function (h) {
-			var hdesc = TableMaker._newheading(h.name, h.label);
+			var hdesc = TableMaker._newHeading(h.name, h.label);
 			headings_by_name[hdesc.name] = hdesc;
-			heading.appendChild(hdesc.th);
+			heading.appendChild(hdesc.th.node);
 			return hdesc;
 		}),
 		enumerable: false,
@@ -252,7 +252,8 @@ function TableMaker(headings) {
 }
 
 TableMaker._newHeading = function(name, label) {
-	var th = (new ContainerDOMNode("th")).appendChild(label);
+	var th = (new ContainerDOMNode(document.createElement("th")))
+		.appendChild(label);
 	return {
 		name: name,
 		th: th
@@ -270,11 +271,12 @@ TableMaker.prototype._createRow = function(data) {
 
 	var tr = document.createElement("tr");
 	var cells = {};
-	for (var i = 0; i < this.headings[i]; i++) {
+	for (var i = 0; i < this.headings.length; i++) {
 		var h = this.headings[i];
 		var c = data[i];
 
-		var td = new ContainerDOMNode("td").appendChild(c);
+		var td = (new ContainerDOMNode(document.createElement("td")))
+			.appendChild(c);
 		cells[h.name] = td;
 		tr.appendChild(td.node);
 	}
