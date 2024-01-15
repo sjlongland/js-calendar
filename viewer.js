@@ -119,15 +119,29 @@ CalendarViewer.prototype.seekDays = function(n) {
 CalendarViewer.prototype.prevMonth = function() {
 	var oldStart = this.start;
 	this.end = oldStart.clone();
-	this.end.adjust(-1);
+	this.end.adjust(-1, 0, 0, 0);
 	this.start = this.end.clone().startOfMonth();
 };
 
 CalendarViewer.prototype.nextMonth = function() {
 	var oldEnd = this.end;
 	this.start = oldEnd.clone();
-	this.start.adjust(1);
+	this.start.adjust(1, 0, 0, 0);
 	this.end = this.start.clone().endOfMonth();
+};
+
+CalendarViewer.prototype.prevYear = function() {
+	var oldStart = this.start;
+	this.end = oldStart.clone();
+	this.end.adjust(-1, 0, 0, 0);
+	this.start = this.end.clone().startOfYear();
+};
+
+CalendarViewer.prototype.nextYear = function() {
+	var oldEnd = this.end;
+	this.start = oldEnd.clone();
+	this.start.adjust(1, 0, 0, 0);
+	this.end = this.start.clone().endOfYear();
 };
 
 CalendarViewer.prototype.getEvents = function () {
