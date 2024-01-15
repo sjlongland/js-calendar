@@ -251,6 +251,7 @@ var renderYearList = function() {
 
 			event_link.node.addEventListener("click", function() {
 				args.date = e.start.toString();
+				body.removeAll();
 				showDay();
 			});
 
@@ -478,6 +479,7 @@ var renderMonthList = function() {
 			if (!args.embed) {
 				event_link.node.addEventListener("click", function() {
 					args.date = e.start.toString();
+					body.removeAll();
 					showDay();
 				});
 			}
