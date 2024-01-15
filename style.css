@@ -8,15 +8,102 @@
 	text-decoration: none;
 }
 
+.calendar_range {
+	display: table;
+	margin: 0.5em;
+	width: 100%;
+	text-align: center;
+}
+
+.calendar_range > div {
+	display: table-cell;
+	width: 60%;
+}
+
+.calendar_range > button {
+	display: table-cell;
+	width: 20%;
+	margin: 2em;
+}
+
+.calendar_picker {
+	text-align: center;
+}
+
+.calendar_month {
+	display: inline-block;
+	text-align: center;
+}
+
+.calendar_month > button {
+	display: block;
+	width: 100%;
+	margin-top: 1em;
+}
+
+.calendar_table {
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+	padding: 1em;
+	background: #fff;
+	color: #000;
+	text-decoration: none;
+}
+
+.calendar_table > thead > tr {
+	margin: 0.5em;
+	background: #ffc;
+	color: #000;
+}
+
+.calendar_table > thead > tr > th {
+	width: 14%;
+}
+
+.calendar_table > tbody > tr > td > button {
+	width: 100%;
+	padding: 1em;
+}
+
+.calendar_date {
+	text-align: center;
+}
+
+.calendar_dayevents {
+	height: 10em;
+}
+
 .calendar_event:hover {
 	border: 1px solid blue;
 	background: #cef;
 	color: #006;
 }
 
+.calendar_navigation {
+	padding: 1em;
+	text-align: center;
+}
+
 .calendar_event.calendar_event_in_progress {
 	border: 1px solid red;
 	background: #fec;
+}
+
+.calendar_event.calendar_event_past {
+	text-decoration: line-through;
+	color: #999;
+}
+
+.calendar_table > tbody > tr > td > button.calendar_event_in_progress {
+	border: 1px solid red;
+	background: #fec;
+}
+
+.calendar_table > tbody > tr > td > button.calendar_event_past {
+	text-decoration: line-through;
+	color: #999;
 }
 
 .calendar_event_in_progress:hover {
